@@ -1,0 +1,4 @@
+Arduino Nano delay — prototype revision A, 8 October 2026.
+Two layers, 50.8 x 88.9 mm, 1.6 mm FR-4, 1 oz copper.
+Sources pass KiCad DRC/ERC, but hardware, firmware, audio and enclosure fit are unvalidated.
+Read the project README before assembly or ordering.

@@ -1,0 +1,1 @@
+(sym_lib_table(version 7)(lib(name "Delay")(type "KiCad")(uri "${KIPRJMOD}/Delay.kicad_sym")(options "")(descr "23LC1024 pinout verified against Microchip DS20005142C")))

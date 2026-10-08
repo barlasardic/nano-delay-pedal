@@ -37,3 +37,7 @@ bom/
 
 # Gerber export output
 out/
+
+~*.lck
+
+*.kicad_pro.lck
