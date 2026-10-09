@@ -17107,8 +17107,8 @@
 			)
 		)
 	)
-	(gr_text "NANO DELAY"
-		(at 33.02 16.51 0)
+	(gr_text "NANO DELAY\nbarlasardic"
+		(at 33 15 0)
 		(layer "F.SilkS")
 		(uuid "4bac1fd4-e1e1-45d4-b381-86ad012770ff")
 		(effects
@@ -17171,6 +17171,18 @@
 				(size 1 1)
 				(thickness 0.13)
 			)
+		)
+	)
+	(gr_text "barlasardic"
+		(at 31.5 7.5 0)
+		(layer "F.SilkS")
+		(uuid "48b41c71-a3c5-41dc-acef-1498a3ddbace")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "C3\n47u 16V"
