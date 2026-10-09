@@ -1,0 +1,71 @@
+NANO DELAY PEDAL - REVISION C - 2026-10-10
+BILL OF MATERIALS - UNTESTED PROTOTYPE
+Generated from the matching KiCad schematic. All board parts are through-hole.
+Supplier part numbers and purchased package dimensions still require confirmation.
+No firmware is included.
+
+BOARD PARTS: 57 populated reference designators
+Format: quantity | references | value/part | KiCad footprint
+
+1 | A1 | Arduino_Nano_v3.x | Delay:Arduino_Nano_EdgeUSB
+1 | C1 | 47u 25V | Capacitor_THT:CP_Radial_D6.3mm_P2.50mm
+1 | C2 | 330n | Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
+2 | C3, C6 | 47u 16V | Capacitor_THT:CP_Radial_D6.3mm_P2.50mm
+9 | C4, C8, C9, C10, C14, C16, C17, C19, C20 | 100n | Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
+1 | C5 | 100n film | Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm
+4 | C7, C11, C12, C18 | 10n | Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
+1 | C13 | 1u film | Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm
+1 | C15 | 100u 16V | Capacitor_THT:CP_Radial_D6.3mm_P2.50mm
+1 | D1 | 1N4007 | Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal
+1 | D2 | 1N4148 | Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal
+2 | D3, D4 | BAT85 | Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal
+1 | J1 | 9V IN: 1=+ 2=GND | Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+1 | J2 | INPUT: 1=TIP 2=SLEEVE | Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+1 | J3 | OUTPUT: 1=TIP 2=SLEEVE | Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+1 | J4 | TIME B10k | Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+1 | J5 | FEEDBACK B10k | Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+1 | J6 | MIX B10k | Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+1 | J7 | MOMENTARY NO | Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+1 | J8 | LED: 1=A 2=K | Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+1 | JP1 | POWER LINK: remove for USB | Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
+1 | K1 | G5V-2-H1 DC5 | Relay_THT:Relay_DPDT_Omron_G5V-2
+1 | Q1 | 2N3904 | Package_TO_SOT_THT:TO-92_Inline_Wide
+3 | R1, R11, R13 | 1M | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+6 | R2, R3, R14, R15, R16, R17 | 10k | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+4 | R4, R5, R6, R8 | 2k2 | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+2 | R7, R18 | 1k | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+1 | R9 | 100k | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+1 | R10 | 22 | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+1 | R12 | 100 | Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal
+1 | U1 | LM7805_TO220 | Package_TO_SOT_THT:TO-220-3_Vertical
+1 | U3 | MCP6002-I/P | Package_DIP:DIP-8_W7.62mm_Socket
+1 | U4 | 23LC1024-I/P | Package_DIP:DIP-8_W7.62mm_Socket
+
+PACKAGE / PURCHASING REQUIREMENTS
+Resistors: compact DIN0204 body 3.6 x 1.6 mm, pitch 7.62 mm, 1%, >=0.125 W.
+Electrolytics: diameter 6.3 mm, lead pitch 2.50 mm; ratings as listed; verify height.
+Ceramic disc capacitors: body 3.0 x 1.6 mm, pitch 2.50 mm; >=16 V recommended.
+Confirm C2 330 nF and 100 nF ceramics fit this compact envelope before purchase.
+C5 film: 7.2 x 2.5 mm body, pitch 5.00 mm.
+C13 film: 7.2 x 3.5 mm body, pitch 5.00 mm; select a fitting 1 uF part.
+K1: Omron G5V-2-H1 DC5, 5 V high-sensitivity coil, matching G5V-2 footprint.
+U3: MCP6002-I/P, DIP-8. U4: 23LC1024-I/P, DIP-8 (not 23A1024).
+Q1: 2N3904; verify E/B/C pinout. U1: LM7805 in the shown TO-220 pinout.
+A1: classic Nano v3.x compatible, 2.54 mm pitch, 15 pins per side.
+Nano USB shell faces right and overhangs PCB edge about 1.3 mm; verify clone geometry.
+
+ADDITIONAL ASSEMBLY / OFF-BOARD HARDWARE
+2 | 1x15 female sockets, 2.54 mm pitch, for A1
+2 | DIP-8 sockets, 7.62 mm row spacing, for U3/U4
+1 | 2.54 mm shunt for JP1; remove before connecting USB
+3 | B10k linear panel pots, knobs and mounting hardware
+2 | Mono 6.35 mm panel jacks (wire to edge headers J2/J3)
+1 | Insulated panel DC jack for regulated 9 V center-negative pedal adapter
+1 | Normally-open momentary footswitch
+1 | Panel LED (R18 is the on-board current-limiting resistor)
+4 | M2.5 insulated standoffs; suitable screws; board holes are 2.7 mm NPTH
+As needed | Hookup wire, short shielded audio cable, header plugs/strain relief
+1 | Suitable enclosure; final jack, pot, USB and component-height fit to be checked
+
+Wiring: hardware-guide.md in manufacturing or docs/hardware-guide.md in project.
+No omitted/DNP circuit parts in this revision.

@@ -1,0 +1,41 @@
+NANO DELAY PEDAL - REVISION C - 2026-10-10
+UNTESTED PROTOTYPE - enclosure fit and audio performance are not validated.
+
+BARE BOARD
+55.88 x 88.90 mm board with 2.0 mm corner radii, 2 copper layers, FR-4, 1.6 mm thickness.
+Conventional 1 oz copper; solder mask both sides; silkscreen both sides.
+Signal tracks 0.25 mm; power/ground routes 0.50 mm; clearance 0.20 mm.
+Vias 0.65 mm diameter with 0.30 mm plated drill.
+4 x 2.7 mm NON-PLATED M2.5 mounting holes, centers:
+(3.81,3.81), (52.07,3.81), (3.81,85.09), (52.07,85.09) mm.
+Coordinates: board top-left = (0,0), X right, Y down, viewed from component side.
+Use Edge_Cuts Gerber as the finished board outline; do not scale.
+
+FILES
+F_Cu / B_Cu: copper. F_Mask / B_Mask: solder mask openings.
+F_Silkscreen / B_Silkscreen: legend. Edge_Cuts: outline.
+PTH.drl: plated holes, including vias and component leads.
+NPTH.drl: unplated mechanical holes. Units: mm, absolute origin.
+.gbrjob: layer mapping. .d356: IPC-D-356 electrical test netlist.
+DRILL-REPORT.txt: drill summary. SHA256SUMS.txt: file integrity manifest.
+BOM.txt: board parts plus off-board hardware and package limits.
+ASSEMBLY-POSITIONS.txt: THT reference coordinates (not an SMT pick-and-place file).
+assembly-top.pdf: top reference map and bottom value/connection drawing.
+mechanical-fit.pdf: enclosure concept plus exact 1:1 PCB mounting template.
+No SMT stencil/paste or automated placement file is required for this THT design.
+The top and bottom legends both belong to this revision. Back silk includes
+reference/value labels for all circuit parts; a few are in the Nano-area legend.
+All 57 circuit parts remain fitted. Read mechanical-fit.pdf for mounting details.
+
+MECHANICAL / ASSEMBLY
+J2 input header pad X = 2.54 mm; J3 output header pad X = 53.34 mm.
+These are wire connections to panel-mounted jacks, not PCB jack footprints.
+A1 Nano is rotated 90 degrees in KiCad; USB opening points to the right edge.
+Standard Nano footprint USB shell spans approximately Y=13.92..21.64 mm
+and extends to X=57.20 mm (about 1.32 mm beyond the board outline).
+Reserve right-side clearance for the actual Nano USB connector, cable and plug.
+Confirm enclosure wall offset and USB cutout against the purchased Nano.
+Keep both the Nano socket height and nearby TO-220 regulator clearance in mind.
+Four mounting holes are included in PCB only, not the electrical schematic BOM.
+Remove JP1 before USB; see hardware-guide.md for the power-up sequence.
+Confirm part pinout, lead pitch and body dimensions before ordering/assembly.

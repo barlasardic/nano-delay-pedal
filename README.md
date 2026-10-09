@@ -4,9 +4,19 @@ A compact guitar delay pedal prototype built around a classic Arduino Nano, with
 
 ![Routed prototype PCB, component side](docs/pcb-preview.png)
 
+## Revision C layout
+
+The **55.88 × 88.90 mm** PCB has rounded corners and four M2.5 mounting holes. It targets a custom compact pedal enclosure. The [mechanical drawing](docs/mechanical-fit.pdf) shows the proposed enclosure arrangement and an exact PCB mounting template; actual hardware clearances still need confirmation.
+
+Input J2 and output J3 are on opposite side edges. The Nano USB socket faces the right side and overhangs the board by about 1.3 mm. Power traces are wider, the regulator bypass capacitors are closer to U1, and the Nano supply and final ADC filter capacitors sit next to their corresponding Nano pins. The circuit connections and component values are unchanged from revision B.
+
+Component values are printed on the front where space permits. The back includes all 57 reference/value labels, connector functions and polarities. See the [two-page assembly guide](docs/assembly-top.pdf) and [review notes](docs/design-review.md).
+
+![Values and wiring labels, viewed from the underside](docs/pcb-bottom.png)
+
 ## Hardware
 
-- **50.8 × 88.9 mm**, two-layer PCB with four M2.5 mounting holes.
+- **55.88 × 88.90 mm**, two-layer PCB with four M2.5 mounting holes.
 - Socketed Arduino Nano and through-hole components.
 - **23LC1024-I/P SPI SRAM** for the planned delay buffer. At 16 ksample/s with 8-bit mono samples, 300 ms requires 4,800 bytes, exceeding the Nano's built-in RAM.
 - **MCP6002-I/P** audio buffers on filtered 5 V, with a 2.5 V input bias and approximately 2.7 kHz input/output filter bandwidth.
@@ -17,18 +27,20 @@ This is a lo-fi delay design. The external SRAM provides storage; the Nano still
 
 ## Open the project
 
-Open [delay-pedal.kicad_pro](delay-pedal.kicad_pro) in **KiCad 9 or later**. The root schematic and PCB belong to the same revision. The project-local SRAM symbol is included in `Delay.kicad_sym` and `sym-lib-table`.
+Open [delay-pedal.kicad_pro](delay-pedal.kicad_pro) in **KiCad 9 or later**. The root schematic and PCB belong to the same revision. The project-local SRAM symbol is included in `Delay.kicad_sym` and `sym-lib-table`; the Nano footprint is in `Delay.pretty` with `fp-lib-table`. Keep both local libraries with the project.
 
 | File / folder | Contents |
 |---|---|
 | [delay-pedal.kicad_sch](delay-pedal.kicad_sch) | Updated circuit schematic |
 | [delay-pedal.kicad_pcb](delay-pedal.kicad_pcb) | Fully routed PCB with ground pours |
 | [delay-pedal.pdf](delay-pedal.pdf) | Schematic PDF |
-| [Assembly map](docs/assembly-top.pdf) | Component locations, including references printed on the reverse |
+| [Assembly map](docs/assembly-top.pdf) | Top component locations and bottom values/polarities |
+| [BOM.txt](BOM.txt) | Manufacturing bill of materials, packages and off-board hardware |
+| [Mechanical drawing](docs/mechanical-fit.pdf) | Custom enclosure concept and 1:1 mounting template |
 | [Parts list](docs/parts-list.md) | Values, package dimensions and off-board hardware |
 | [Hardware and wiring guide](docs/hardware-guide.md) | Pin assignments, assembly, USB power and first checks |
 | [Validation reports](docs/checks/) | KiCad ERC, DRC and schematic/PCB agreement results |
-| [Prototype manufacturing files](manufacturing/) | Gerbers and separate plated/non-plated Excellon drill files |
+| [Prototype manufacturing files](manufacturing/) | Gerbers, plated/non-plated drills, IPC-D-356 netlist, BOM and fabrication notes |
 
 ## Power and wiring
 

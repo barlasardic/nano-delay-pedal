@@ -1,4 +1,4 @@
-# Arduino Nano delay pedal — prototype revision A
+# Arduino Nano delay pedal — prototype revision C
 
 A fully routed, two-layer PCB draft for a mono delay with a **300 ms target**. This is an unbuilt prototype. Firmware is not included, and audio performance has not been measured. Validate the circuit on a breadboard or prototype before ordering a production batch.
 
@@ -6,7 +6,7 @@ Open **delay-pedal.kicad_pro** in KiCad 9 or later. This revision updates the ro
 
 ## Design choices
 
-- Board: **50.8 × 88.9 mm**, 1.6 mm thick, two copper layers, conventional 1 oz copper. This is a compact-pedal layout; fit in a particular BOSS enclosure has not been established.
+- Board: **55.88 × 88.90 mm**, 1.6 mm thick, two copper layers, conventional 1 oz copper. This is a compact-pedal layout; fit in a particular BOSS enclosure has not been established.
 - Four 2.7 mm mounting holes for M2.5 hardware, centered 3.81 mm from each corner. Use insulating spacers and account for screw-head clearance.
 - Through-hole parts, socketed DIP ICs, and a Nano on two 15-pin female sockets. Match the Nano's USB end to the footprint marking.
 - Wired enclosure controls: three B10k linear pots, two mono 6.35 mm jacks, normally-open momentary footswitch, LED, and external DC jack. Board connections use 2.54 mm headers; solder wires directly or use secure mating plugs with strain relief.
@@ -14,9 +14,27 @@ Open **delay-pedal.kicad_pro** in KiCad 9 or later. This revision updates the ro
 - **MCP6002-I/P** replaces the TL072 and runs from filtered 5 V. Do not fit a TL072 in U3.
 - **G5V-2-H1 DC5** relay gives bypass when de-energized. Use the 5 V H1 sensitivity version; a standard G5V-2 DC5 draws more current and requires a driver/power review.
 - Input and output filters use two cascaded 2.2 kΩ/10 nF RC sections, approximately 2.7 kHz combined -3 dB bandwidth. The target is a deliberately lo-fi sound, not commercial BOSS audio quality.
-- Both sides have ground pours. Signal tracks are 0.25 mm with 0.20 mm minimum clearance; vias are 0.65 mm with 0.30 mm drill.
+- Both sides have ground pours. Signal tracks are 0.25 mm; power, relay-coil and ground routes are 0.50 mm. Minimum clearance is 0.20 mm; vias are 0.65 mm with 0.30 mm drill.
 
 The live schematic was rebuilt into labeled functional sections. The input stays centered near 2.5 V through the ADC filter; D2's cathode connects to the relay's positive supply. Relay contact numbering now matches the chosen physical part.
+
+## Revision C mechanical layout
+
+The PCB is **55.88 × 88.90 mm**, with 2 mm corner radii. This leaves room within a custom enclosure using a **73 × 129 × 59 mm overall reference envelope**, based on [BOSS compact-pedal dimensions](https://in.boss.info/products/ds-1/). This is a custom housing concept; the BOSS outer measurements do not specify its internal cavity.
+
+The four 2.70 mm mounting-hole centers are (3.81, 3.81), (52.07, 3.81), (3.81, 85.09), and (52.07, 85.09) mm, measured from the PCB top-left. Their spacing is 48.26 × 81.28 mm. Use insulated M2.5 spacers and keep screw heads clear of copper.
+
+J2 input is at the left edge (X=2.54 mm); J3 output is at the right edge (X=53.34 mm). Both are wired headers for panel jacks. Their pin-1 Y coordinate is 48.26 mm. The Nano USB socket points right, with approximately 1.32 mm shell overhang for the standard module footprint. Its shell spans PCB Y=13.92 to 21.64 mm. Verify the actual Nano and plug before cutting the enclosure.
+
+[mechanical-fit.pdf](mechanical-fit.pdf) includes an enclosure concept and a **1:1 PCB mounting template**. The concept assumes 2.5 mm walls and locates the PCB at enclosure X=13.30, Y=8.00 mm, bringing the nominal USB face to the right inner wall. Pot, jack and switch shapes are space reservations only: select their actual parts before drilling the enclosure. Route wires around the board and add strain relief. Panel-jack bodies must sit above the PCB components where their plan views overlap. Reserve at least 5 mm below the PCB and initially 25 mm above it, then check the actual sockets, regulator, capacitor heights, panel hardware and lid stack.
+
+The local `Delay.pretty/Arduino_Nano_EdgeUSB.kicad_mod` retains the standard Nano pad geometry and places the outboard USB outline on F.Fab. Keep `fp-lib-table` and the local library with the project.
+
+## Values and assembly labels
+
+The front has component references, 17 component values where space allows, connector functions and the USB jumper instruction. The back has a reference/value label for every one of the 57 circuit parts. Eight labels use the open space under the Nano; identify those parts by their explicit reference rather than label location. The assembly PDF provides a top reference map and a correctly mirrored bottom view.
+
+On the board, `2k2` means 2.2 kΩ, `1M` means 1 MΩ, `22` means 22 Ω, `100n` means 100 nF, and `47u 16V` means 47 µF rated 16 V. Header shorthand: G = ground, W = pot wiper, T = jack tip, +5 = logic supply. Numbers refer to pad numbers. J8 + is the LED anode and - the cathode. The full wiring table below is authoritative.
 
 ## Wiring
 
@@ -69,7 +87,7 @@ Firmware must initialize SPI/SRAM, center PWM near half-scale before engaging th
 
 Fit resistors, diodes, sockets, capacitors and headers first. Check diode bands, electrolytic polarity and the 2N3904 E/B/C pinout. U3 and U4 are different ICs despite sharing DIP-8 sockets. The Nano uses sockets, not a bare ATmega328 chip.
 
-Before inserting the Nano and DIP ICs, check for shorts, then apply current-limited 9 V and confirm approximately 5 V at 5V_REG. Fit JP1 and check the logic and analog rails, plus approximately 2.5 V at VB_2V5 after its capacitor settles. Measure the regulator temperature under the actual load. There is space to assess a small TO-220 heatsink, but its mechanical fit has not been validated.
+Before inserting the Nano and DIP ICs, check for shorts, then apply current-limited 9 V and confirm approximately 5 V at 5V_REG. Fit JP1 and check the logic and analog rails, plus approximately 2.5 V at VB_2V5 after its capacitor settles. Measure the regulator temperature under the actual load. Any heatsink would require a fresh clearance check; nearby Nano sockets constrain the available space.
 
 With firmware installed, verify unpowered bypass, input/ADC bias, PWM carrier and filtered output using an oscilloscope, then measure delay time, noise, clipping, feedback stability and relay switching behavior. Check with the actual enclosure, jacks and pot bodies before committing mounting holes in the enclosure.
 
@@ -77,10 +95,14 @@ With firmware installed, verify unpowered bypass, input/ADC bias, PWM carrier an
 
 - KiCad schematic, board and project: editable design sources.
 - ../delay-pedal.pdf: circuit drawing.
-- assembly-top.pdf: component positions and references, including references printed on the reverse side.
-- pcb-preview.png: top view of the actual routed board.
+- assembly-top.pdf: top reference map and bottom values/connector labels.
+- mechanical-fit.pdf: enclosure concept and exact PCB mounting template.
+- design-review.md: review scope, changes and remaining bench checks.
+- pcb-preview.png and pcb-bottom.png: top and bottom views of the routed bare PCB.
 - parts-list.md: grouped board parts and off-board hardware.
 - board-check.txt and schematic-check.txt: KiCad checks from the delivered revision.
+- ../BOM.txt: schematic-derived manufacturing parts list.
+- ../manufacturing/FABRICATION.txt: board specifications, edge access and file conventions.
 - ../manufacturing/: Gerber and Excellon files for the **unvalidated prototype**; these are not evidence of functional testing.
 
 The delivered design is checked for electrical-rule violations, copper clearances, unconnected pads and schematic/PCB agreement. These checks do not establish audio performance or physical compatibility with every supplier's part. Confirm body dimensions, lead pitch and pinout when purchasing parts, especially film capacitors, relay, transistor and Nano clones.

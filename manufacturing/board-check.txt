@@ -1,0 +1,11 @@
+** Drc report for delay-pedal.kicad_pcb **
+** Created on 2026-10-10T01:16:53+0300 **
+** Report includes: Errors, Warnings **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

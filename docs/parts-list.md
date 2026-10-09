@@ -1,10 +1,12 @@
-# Parts list — prototype revision A
+# Parts list — prototype revision C
+
+See [BOM.txt](../BOM.txt) for the plain-text manufacturing BOM.
 
 Select parts by both electrical value and the footprint dimensions. Resistors use compact DIN0204 bodies (about 3.6 × 1.6 mm), 7.62 mm lead spacing, 1% tolerance, at least 0.125 W. Standard larger quarter-watt bodies may need a footprint/layout change.
 
 | References | Qty | Value / part | Package |
 |---|---:|---|---|
-| A1 | 1 | Arduino_Nano_v3.x | Arduino_Nano |
+| A1 | 1 | Arduino_Nano_v3.x | Arduino_Nano_EdgeUSB (project-local Delay library) |
 | C1 | 1 | 47u 25V | CP_Radial_D6.3mm_P2.50mm |
 | C2 | 1 | 330n | C_Disc_D3.0mm_W1.6mm_P2.50mm |
 | C3, C6 | 2 | 47u 16V | CP_Radial_D6.3mm_P2.50mm |

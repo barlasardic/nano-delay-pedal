@@ -5,16 +5,16 @@
       "Application": "Pcbnew",
       "Version": "9.0.8+dfsg-1"
     },
-    "CreationDate": "2026-10-08T22:42:22+03:00"
+    "CreationDate": "2026-10-10T01:16:53+03:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "delay-pedal",
       "GUID": "64656c61-792d-4706-9564-616c2e6b6963",
-      "Revision": "rev?"
+      "Revision": "C - UNTESTED"
     },
     "Size": {
-      "X": 50.85,
+      "X": 55.93,
       "Y": 88.95
     },
     "LayerNumber": 2,
